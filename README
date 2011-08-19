@@ -1,0 +1,30 @@
+This project is still in beta stage.
+
+The MNC Dedicated Server Web Admin Tool allows you to manage your server through the use of a web browser.
+
+The Server Admin tool is written completely in client-side script (Javascript & HTML).
+No hosting is required to use this tool, simply open the index.html file in a browser.
+
+Browsers that have been tested:
+ - Google chrome 13
+ - Internet Explorer 8
+ - Opera 11.5
+ - FireFox 6.0
+
+In order to use this tool, the web admin settings will have to be enabled on your Monday Night Combat dedicated server.
+Please consult the Uber Entertainment forums for the most recent details on how to enable this feature.
+
+The following excerpt may be outdated:
+
+You can turn on the web admin feature in the HostileAccess.ini file. 
+It requires that you set a user name and password and set the enable flag. 
+
+Here's an example:
+[HostileGame.MNCWebAdmin]
+WebAdminUsername=bozoTheClown
+WebAdminPassword=asdf1234
+WebAdminPort=8080
+bWebAdminEnabled=true
+bDebugLog=false
+
+When the game boots it will listen on port 8080 (or whatever you set it to) for simple REST like web requests. 
