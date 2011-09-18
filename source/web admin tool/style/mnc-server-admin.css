@@ -1,0 +1,463 @@
+/* Monday Night Combat Server Admin Style Sheet
+ *
+ * dark grey #252025
+ * orange    #fc6902
+ * blue      #033665
+ * purple    #990066
+ * green     #008e00
+ * grey      #8f8f8f
+ */
+
+ /* general */
+
+@font-face
+{
+    font-family: Sansation;
+    src: url('./font/Sansation_Bold.eot');
+    src: local(Sansation), url('./font/Sansation_Bold.ttf') format('opentype');
+}
+
+.body
+{
+  background-color:black;
+  text-align: center;  
+  min-width:  1000px;
+  
+  text-align: center;  
+  background-image: url('./images/site-background.jpg');
+  background-repeat: no-repeat;      
+  background-position: center 200px; 
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-origin: padding-box;  
+}
+
+.title
+{
+  font-family: Sansation;
+  font-size: 22px;
+
+  color:rgb(255,255,255);
+}
+
+.headertext
+{
+  font-family: Sansation;
+  color:#000000;
+  font-size: 22px;
+}
+
+.textarea
+{
+  background-color:#000000;
+
+  border: 1px solid #000000;
+
+  font-family: Sansation;
+  font-size: 16px;
+
+  color:#ffffff;
+  resize:none;
+
+  padding: 0px;
+  margin: 0px;
+}
+
+.table
+{
+  background-color:#000000;
+
+  border-collapse: collapse;
+
+  font-family: Sansation;
+  font-size: 16px;
+
+  color:#ffffff;
+
+  overflow:scroll;
+}
+
+.inputfield
+{
+  background-color:#000000;
+  font-family: Sansation;
+  font-size: 14px;
+
+  border: 1px solid #000000;
+
+  color:#ffffff;
+
+  margin: 0;
+  padding: 0;
+}
+
+.button
+{
+  font-family: Sansation;
+  font-size:   16px;
+
+  color:#ffffff;
+
+  cursor: pointer;
+}
+
+/* page make up */
+
+.wrapper
+{
+  width:  896px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.disable
+{
+  position: absolute;
+
+  top: 0px;
+  left:0px;
+
+  width: 896px;
+  height:618px;
+
+  background-color:#000000;
+  opacity: 0.5;
+  filter:alpha(opacity=50); /* IE fix */
+
+  visibility: hidden;
+}
+
+.footerdiv
+{
+  background-color:#000000;
+  
+  padding-top: 10px;
+  padding-left: 46px;
+  
+  position:relative;
+}
+
+.logodiv
+{
+  text-align: center;
+  padding-bottom: 6px;
+}
+
+.bodydiv
+{
+  position:relative;
+}
+
+/* player list */
+
+.gamestats
+{
+  height:30px;
+  vertical-align:bottom;
+}
+
+.pttr
+{
+  height: 26px;
+}
+
+.pttralt
+{
+  height: 26px;
+  background-image: url('./images/alpha-10-white.png');
+}
+
+.pttrhilite
+{
+  height: 26px;
+  background-image: url('./images/alpha-15-white.png');
+}
+
+/* hotshots */
+
+.hotshotsheader
+{
+  height:36px;
+  background-image: url('images/bar-orange.jpg');
+}
+
+.hotshotsdiv
+{
+  width:583px;
+  height:192px;
+
+  border: 1px solid #000000;
+
+  background-color:#fc6902;
+}
+
+#hotshotstable
+{
+  width:  583px;
+  text-align:center;
+}
+
+/* icemen */
+
+.icemenheader
+{
+  height:36px;
+  background-image: url('images/bar-blue.jpg');
+}
+
+.icemendiv
+{
+  width:583px;
+  height:192px;
+
+  border: 1px solid #000000;
+
+  background-color:#033665;
+}
+
+#icementable
+{
+  width:  583px;
+  text-align:center;
+}
+
+/* player stats */
+
+.playerheader
+{
+  height:34px;
+  padding-left:10px;
+  padding-top:2px;
+  background-image: url('images/bar-green-2.jpg');
+}
+
+.playerdiv
+{
+  width:585px;
+  height: 229px;
+
+  border: 1px solid #000000;
+
+  background-color:#008e00;
+}
+
+.pstralt
+{
+  background-image: url('./images/alpha-10-white.png');
+}
+
+/* config */
+
+.configheader
+{
+  height:34px;
+  padding-left:10px;
+  padding-top:2px;
+  background-image: url('images/bar-grey.jpg');
+}
+
+.configdiv
+{
+  position:absolute;
+  left:211px;
+  top:100px;
+
+  width:484px;
+
+  border: 1px solid #000000;
+  background-color:#8f8f8f;
+
+  visibility:hidden;
+}
+
+#configtext
+{
+  margin-bottom: 2px;
+  width: 478px;
+  height: 100px;
+}
+
+#configtable
+{
+  width:334px;
+}
+
+#configserver
+{
+  position: absolute;
+  right:2px;
+  top:104px;
+
+  height:84px;
+  width:144px;
+}
+
+#configweb
+{
+  position: absolute;
+  
+  position: absolute;
+  right:2px;
+  top:104px;
+
+  height:84px;
+  width:144px;  
+
+  visibility:hidden;
+
+  background-color:#8f8f8f;
+}
+
+.ctrhilite
+{
+  background-image: url('./images/alpha-10-white.png');
+}
+
+/* banlist */
+
+.banlistheader
+{
+  height:34px;
+  padding-left:10px;
+  padding-top:2px;
+  background-image: url('images/bar-purple.jpg');
+}
+
+.banlistdiv
+{
+  position:absolute;
+  left:311px;
+  top:100px;
+
+  width:284px;
+
+  border: 1px solid #000000;
+  background-color:#990066;
+
+  visibility:hidden;
+}
+
+.bltralt
+{
+  background-image: url('./images/alpha-10-white.png');
+}
+
+.bltrhilite
+{
+  background-image: url('./images/alpha-15-white.png');
+}
+
+#banlistempty
+{
+  position:absolute;
+
+  top: 58px;
+  left: 32px;
+  width: 200px;
+
+  padding: 10px;
+
+  background-color: #000000;
+  color:#ffffff;
+
+  font-family: Sansation;
+  font-size: 16px;
+}
+
+/* server */
+
+.serverheader
+{
+  height:34px;
+  padding-left:10px;
+  padding-top:2px;
+  background-image: url('images/bar-purple.jpg');
+}
+
+.serverdiv
+{
+  position:absolute;
+  right:0px;
+  top:0px;
+
+  width:310px;
+  height:331px;
+
+  border: 1px solid #000000;
+
+  background-color:#990066;
+}
+
+#servertable
+{
+  width:  310px;
+}
+
+.sttralt
+{
+  background-image: url('./images/alpha-10-white.png');
+}
+
+/* chatlog */
+
+.chatlogheader
+{
+  height:34px;
+  padding-left:10px;
+  padding-top:2px;
+  background-image: url('images/bar-purple.jpg');
+}
+
+.chatlogdiv
+{
+  position:absolute;
+  right:0px;
+  top:332px;
+
+  width:310px;
+  height:285px;
+
+  border: 1px solid #000000;
+
+  background-color:#990066;
+}
+
+#chatlogtextarea
+{
+  width:310px;
+  height:222px;
+  overflow:auto;
+
+  margin-bottom: 3px;
+}
+
+#chatinput
+{
+  width: 260px;
+}
+
+.chatline
+{
+  position: relative;
+}
+
+.chatlinename
+{
+  float:left;
+  color:#FFFF00;
+}
+
+.chatlineglobal
+{
+  color:#FFFFFF;
+}
+
+.chatlinehotshots
+{
+  color:#fc6902;
+}
+
+.chatlineicemen
+{
+  color:#00B7EB;
+}

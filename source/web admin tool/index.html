@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>MNC Server Admin</title>
+    <link rel="stylesheet" type="text/css" href="./style/mnc-server-admin.css"></link>
+    <script type="text/javascript" src="./js/jquery-1.6.4.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.cookie.js"></script>
+    <script type="text/javascript" src="./js/rsa-crypt.js"></script>
+    <script type="text/javascript" src="./js/settings.js"></script>
+    <script type="text/javascript" src="./js/mnc-admin-0.9.1.min.js"></script>
+    <script type="text/javascript">
+
+    $(document).ready
+    (
+      function()
+      {
+        function chatLineSend()
+        {
+          chatSend($("#chatinput").val());
+        }
+
+        buttonMake("#chatsend" , function(){chatLineSend();});
+        $("#chatinput").keyup(function(event){if(event.keyCode == 13){chatLineSend();}})
+
+        playerListFill();
+        serverStatusFill();
+        banListFill();
+        playerStatsFill();
+
+        configToggle();
+      }
+    )
+
+    </script>
+  </head>
+
+  <body class="body">
+    <div class="wrapper">
+
+      <div class="logodiv">
+        <image src="./style/images/site-logo.jpg"></image>
+      </div>
+
+      <div class="bodydiv">
+
+      <div class="hotshotsdiv">
+        <div class="hotshotsheader">
+          <table style="border-collapse: collapse; text-align:center">
+            <tr style="height: 34px">
+              <td width="282" style="text-align:left; padding-left:10px; padding-bottom: 4px;"><span class="title" id="hotshotstitle">Hotshots</span></td>
+              <td width="40" class="gamestats"><image src="./style/images/icon-player-stat-ping.gif"    height="26"></td>
+              <td width="40" class="gamestats"><image src="./style/images/icon-player-stat-kills.gif"   height="26"></td>
+              <td width="40" class="gamestats"><image src="./style/images/icon-player-stat-assists.gif" height="26"></td>
+              <td width="40" class="gamestats"><image src="./style/images/icon-player-stat-deaths.gif"  height="26"></td>
+              <td width="40" class="gamestats"><image src="./style/images/icon-player-stat-bots.gif"    height="26"></td>
+              <td width="60" class="gamestats"><span class="headertext">$$$</span></td>
+            </tr>
+          </table>
+        </div>
+        <div>
+          <table class="table" id="hotshotstable" border="0"></table>
+        </div>
+      </div>
+
+      <div class="icemendiv">
+        <div class="icemenheader">
+          <table style="border-collapse: collapse; text-align:center">
+            <tr style="height: 34px">
+              <td width="282" style="text-align:left; padding-left:10px; padding-bottom: 5px;"><span class="title" id="icementitle">Icemen</span></td>
+              <td width="40" class="gamestats"><image src="./style/images/icon-player-stat-ping.gif"    height="26"></td>
+              <td width="40" class="gamestats"><image src="./style/images/icon-player-stat-kills.gif"   height="26"></td>
+              <td width="40" class="gamestats"><image src="./style/images/icon-player-stat-assists.gif" height="26"></td>
+              <td width="40" class="gamestats"><image src="./style/images/icon-player-stat-deaths.gif"  height="26"></td>
+              <td width="40" class="gamestats"><image src="./style/images/icon-player-stat-bots.gif"    height="26"></td>
+              <td width="60" class="gamestats"><span class="headertext">$$$</span></td>
+            </tr>
+          </table>
+        </div>
+        <div>
+          <table class="table" id="icementable" border="0"></table>
+        </div>
+      </div>
+
+      <div class="serverdiv">
+        <div class="serverheader">
+          <span class="title" id="servertitle">Server</span>
+        </div>
+        <div>
+          <table class="table" id="servertable" border="0"></table>
+        </div>
+      </div>
+
+      <div class="chatlogdiv">
+        <div class="chatlogheader">
+          <span class="title" id="chatlogtitle">Chatlog</span>
+        </div>
+        <div id="chatlogtextarea" class="textarea"><div class="chatloginner"></div></div>
+        <div id="chatsenddiv">
+          <table style="border-collapse: collapse;">
+            <tr>
+              <td style="padding-left:4px; padding-bottom: 2px; padding-top: 1px" width="266"><input type="text" class="inputfield" id="chatinput"></input></td>
+              <td style="padding-right:4px;"><span style="font-size: 14px;" id="chatsend">Send</span></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="banlistdiv">
+        <div class="banlistheader">
+          <span class="title" id="banlisttitle">Ban list</span>
+        </div>
+        <div style="padding-left: 2px; padding-right:2px; position: relative">
+          <table class="table" id="banlisttable" border="0"></table>
+        <div id="banlistempty">The server ban list will only be updated during a match round.</div>
+        </div>
+      </div>
+
+      <div class="disable">
+      </div>
+
+      <div class="configdiv">
+        <div class="configheader">
+          <table style="border-collapse: collapse;">
+            <tr style="height: 34px">
+              <td width="444" style="padding-bottom: 7px;"><span class="title">Config</span></td>
+              <td width="30">
+                <image src="./style/images/ajax-loader.gif" height="24" style="padding-top: 4px; visibility:hidden" id="loading"></image>
+              </td>
+            </tr>
+          </table>
+        </div>
+        <div style="padding-left: 2px; padding-right:2px; position: relative">
+          <textarea class="textarea" id="configtext" style="font-size: 14px;"></textarea>
+          <table class="table" id="configtable" border="0" style="font-size:14px; height:84px;"></table>
+          <div id="configserver">
+            <table class="table">
+              <tr><td style="background-color: #353035;">Server Address</td></tr>
+              <tr><td style="background-color: #353035; width: 140px;"><input type="text" class="inputfield" id="serverinput" style="width:140px;"></input></td></tr>
+              <tr><td style="text-align: center; background-color: #353035; width: 142px;" id="serverrefresh">Refresh List</td></tr>
+              <tr><td style="text-align: center; background-color: #353035; width: 142px;" id="serverselect">Select Server</td></tr>
+            </table>
+          </div>
+          <div id="configweb">
+            <table class="table">
+              <tr><td style="width: 140px;background-color: #353035;"><input type="text" class="inputfield" id="webport" style="width:140px;"></input></td></tr>
+              <tr><td style="width: 140px;background-color: #353035;"><input type="text" class="inputfield" id="webuser" style="width:140px;"></input></td></tr>
+              <tr><td style="width: 140px;background-color: #353035;"><input type="text" class="inputfield" id="webfake" style="width:140px;"></input></td></tr>
+              <tr><td style="width: 140px;background-color: #353035;"><input type="password" class="inputfield" id="webpass" style="width:140px; display:none"></input></td></tr>
+              <tr><td style="text-align: center; background-color: #353035; height:20px;" id="configwebsubmit">Enter Details</td></tr>
+            </table>
+          </div>
+        </div>
+        <div style="height:2px;"></div>
+      </div>
+
+     </div>
+
+      <div class="playerdiv">
+        <div class="playerheader">
+          <table style="border-collapse: collapse;">
+            <tr style="height: 34px">
+              <td width="190" style="padding-bottom: 7px;"><span class="title">Player</span></td>
+              <td width="314" class="gamestats" style="text-align:right; padding-bottom: 2px;" id="playername"></td>
+              <td width="30"  class="gamestats" style="text-align:right; padding-bottom: 2px;" id="playericon"></td>
+              <td width="30"  class="gamestats" style="text-align:right; padding-bottom: 2px;" id="playerlevel"></td>
+            </tr>
+          </table>
+        </div>
+        <div>
+          <table class="table" id="playertable" border="0"></table>
+        </div>
+      </div>
+
+      <div class="footerdiv">
+        <div style="position:absolute;"><image src="./style/images/logoUber.png"></image></div>
+        <div style="position:absolute; right:18px; top: 16px; width:660px; color:white; font-family:sansation; font-size:14px">
+        Monday Night Combat is a trademark of Uber Entertainment.
+        Uber Entertainment and the Uber logo are registered trademarks of Uber Entertainment, Inc in the U.S. and/or other countries.
+        All other marks are property of their respective owners.
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
