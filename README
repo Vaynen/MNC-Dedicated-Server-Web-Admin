@@ -1,13 +1,23 @@
-This project is still in beta stage.
+The Web Admin Tool is currently in Beta stage.
 
-The MNC Dedicated Server Web Admin Tool allows you to manage your server through the use of a web browser.
+This means that any usage is considered "testing" the tool. No guarantees can be made concerning the reliability of the tool, 
+nor can anyone be held accountable for any damage incurred through the usage of this tool.
 
-The Server Admin tool is written completely in client-side script (Javascript & HTML).
-No hosting is required to use this tool, simply open the index.html file in a browser.
+This package consists of two parts:
+
+ * Admin Tool (JavaScript based webpage)
+ * PHP Proxy
+
+The Admin Tool is an HTML page that utilizes ajax to retrieve game data and display it on screen. The page can be hosted on
+the Internet but can also be opened from a local drive.
+
+The ajax calls are made to a PHP proxy server. In turn, the PHP proxy server makes calls to the game server. A standard PHP
+proxy server is always online and available but the source for running your own PHP proxy server is included for anyone who
+would prefer that option.
 
 Browsers that have been tested:
- - Google chrome 13
- - Internet Explorer 8
+ - Google chrome 13.0
+ - Internet Explorer 8.0
  - Opera 11.5
  - FireFox 6.0
 
